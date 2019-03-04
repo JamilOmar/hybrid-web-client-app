@@ -11,9 +11,9 @@ import {
   ControllerClass,
 } from '@loopback/core';
 import * as _ from 'lodash';
-import { IPCSequence } from './ipcSequence';
-import { ElectronServerConfig, ElectronMetadata } from './types';
-import { ElectronBindings, ELECTRON_METADATA_KEY } from './keys';
+import {IPCSequence} from './ipcSequence';
+import {ElectronServerConfig, ElectronMetadata} from './types';
+import {ElectronBindings, ELECTRON_METADATA_KEY} from './keys';
 import electron = require('electron');
 const ipcMain = require('electron').ipcMain;
 export class ElectronServer extends Context implements Server {
@@ -36,7 +36,7 @@ export class ElectronServer extends Context implements Server {
         minWidth: 800,
         minHeight: 600,
       },
-      enableDebug: false
+      enableDebug: false,
     });
   }
   // implementation of the server interface
@@ -105,6 +105,7 @@ export class ElectronServer extends Context implements Server {
 
   // tslint:disable-next-line:no-any
   private setIPCEvent(
+    // tslint:disable-next-line:no-any
     ctor: ControllerClass | any,
     methodName: string,
     metadata: ElectronMetadata,
