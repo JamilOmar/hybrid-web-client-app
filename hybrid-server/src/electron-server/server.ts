@@ -11,9 +11,9 @@ import {
   ControllerClass,
 } from '@loopback/core';
 import * as _ from 'lodash';
-import {IPCSequence} from './ipcSequence';
-import {ElectronServerConfig, ElectronMetadata} from './types';
-import {ElectronBindings, ELECTRON_METADATA_KEY} from './keys';
+import { IPCSequence } from './ipcSequence';
+import { ElectronServerConfig, ElectronMetadata } from './types';
+import { ElectronBindings, ELECTRON_METADATA_KEY } from './keys';
 import electron = require('electron');
 const ipcMain = require('electron').ipcMain;
 export class ElectronServer extends Context implements Server {
@@ -36,6 +36,7 @@ export class ElectronServer extends Context implements Server {
         minWidth: 800,
         minHeight: 600,
       },
+      enableDebug: false
     });
   }
   // implementation of the server interface
@@ -77,7 +78,10 @@ export class ElectronServer extends Context implements Server {
   private createWindow(): void {
     // set the browser window
     this._window = new electron.BrowserWindow(_.get(this.config, 'window'));
-    this._window.webContents.openDevTools();
+    if (_.get(this.config, 'enableDebug')) {
+      this._window.webContents.openDevTools();
+    }
+
     // load the html file
     this._window.loadFile(_.get(this.config, `path`, ''));
 
