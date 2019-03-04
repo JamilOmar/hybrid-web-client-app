@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ipcRenderer } from 'electron';
+import { ElectronService } from 'ngx-electron';
 import { IFacilityService, Facility } from '../shared';
 @Injectable({
   providedIn: 'root'
 })
 export class FacilityDataService implements IFacilityService {
-  constructor() {
+  constructor(private electronService: ElectronService) {
 
   }
   private createIPCPromise(eventName: string , ...params: any[]) {
-    ipcRenderer.send(eventName, ...params);
+    this.electronService.ipcRenderer.send(eventName, ...params);
     return new Promise((resolve, reject) => {
-      ipcRenderer.once(`${eventName}-success`,
+      this.electronService.ipcRenderer.once(`${eventName}-success`,
         (event, args) => {
           resolve(args);
         });
-        ipcRenderer.once(`${eventName}-error`,
+        this.electronService.ipcRenderer.once(`${eventName}-error`,
         (event, args) => {
           reject(args);
         });

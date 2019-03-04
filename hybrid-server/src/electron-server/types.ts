@@ -4,3 +4,9 @@ export type ElectronServerConfig = {
   // tslint:disable-next-line:no-any
   [key: string]: any;
 };
+
+export type ElectronMetadata = {
+  eventName: string;
+  eventSuccessName: string;
+  eventFailureName: string;
+};

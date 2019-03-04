@@ -1,12 +1,11 @@
-import { Entity, model, property } from '@loopback/repository';
+import {Entity, model, property} from '@loopback/repository';
 
-@model({ idInjection: true, settings: { strict: false, } })
+@model({idInjection: true, settings: {strict: false}})
 export class Facility extends Entity {
   @property({
     type: 'number',
     id: true,
     required: true,
-
   })
   id: number;
 

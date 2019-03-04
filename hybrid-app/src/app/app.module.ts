@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {FacilitiesComponent} from './facilities/facilities.component';
 import {FacilityDetailComponent} from './facilities/facility-detail/facility-detail.component';
 import {FacilityEditComponent} from './facilities/facility-edit/facility-edit.component';
-
+import { NgxElectronModule } from 'ngx-electron';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import {FacilityEditComponent} from './facilities/facility-edit/facility-edit.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [AppComponent]
