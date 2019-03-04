@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-12">
+  
+      <button class="btn btn-success" (click)="onNewFacility()">New Facility</button>
+  </div>
+  </div>
+  <hr>
+  <div class="row">
+  
+      <div class="col-xs-12">
+          <app-facility-detail  *ngFor="let facilityEl of facilities, let i = index" [facility]="facilityEl"></app-facility-detail>
+      </div>
+  </div>
+  

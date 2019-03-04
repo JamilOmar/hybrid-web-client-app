@@ -1,0 +1,1 @@
+export * from './facilityService.interface';
